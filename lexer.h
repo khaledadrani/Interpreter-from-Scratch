@@ -2,11 +2,11 @@
 #define LEXER_H
 #include "token.h"
 
-
+// the lexer class will be expanded later on.
 class lexer
 {
 	public:
-		lexer();
+		lexer();    
 		~lexer();
 	    bool tokenize(string);
 	    bool lexing(string);
@@ -22,11 +22,12 @@ class lexer
 		token Variable_Buffer; //letter buffer
 		token Left_Buffer; //right parathenses buffer
 		token Right_Buffer; //left parante buffer
-		stack<token*> stac;
+		stack<token*> stac; // stac for postfix expressions during parsing
 	
-		queue<token*> output;
+		queue<token*> output; // the result of the parsing is supposedly here
+	        // these are various parameters I will be using during lexical analysis
 		int nb_var;
-		int nb_lit;
+		int nb_lit; 
 		int nb_para;
 		int nb_paraL;
 		int nb_paraR;
@@ -40,7 +41,7 @@ class lexer
 		
 		
 		
-		
+		// necessary functions for lexical analysis
 		bool inline isComma(char ch){ return(ch==',');}
 		bool inline isOperator(char ch){return(ch=='+' || ch=='*' || ch=='^' || ch=='-' || ch=='/');	}
 		bool inline isLeftP(char ch){return(ch=='(');}
